@@ -1,0 +1,16 @@
+create database l4;
+use l4;
+
+create table t1(student_id int, name varchar(20));
+describe t1;
+
+# composite key means making more than 1 columns primary key
+alter table t1 add constraint  primary key(student_id,name);
+
+alter table t1 drop primary key;
+alter table t1 add constraint primary key(student_id);
+drop table t1;
+
+alter table t1 modify name varchar(20) not null;
+alter table t1 add dept varchar(20) default 'finance';
+alter table t1 alter dept drop default;

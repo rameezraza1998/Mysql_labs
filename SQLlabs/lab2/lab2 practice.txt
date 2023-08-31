@@ -1,0 +1,39 @@
+create database ramis;
+use ramis;
+create table t1(id int, name varchar(30), salary int);
+insert into t1 values('1','Ramis', 900000),('2','Junaid', 800000),('3','Asfand', 700000),('4','Junaid', 600000);
+select distinct name from t1;
+select name as bla from t1;
+select * from t1
+where id = 3;
+select * from t1
+where (salary)-900000 = 0;
+select * from t1
+where salary = 900000 and id = 1;
+select * from t1
+where salary = 900000 or id = 3;
+select * from t1 
+where not salary = 900000;
+select * from t1
+where salary in (600000,800000,700000);
+select * from t1
+where salary between 700000 and 800000; 
+select * from t1
+where name like "a%";
+select * from t1
+where name like "%a%";
+select * from t1
+where name not like "%a";
+select * from t1
+where name not like "a%";
+select * from t1
+where name like "r%s";
+
+select * from t1
+limit 2,4; -- offset will always start with a value less then given one--
+
+select * from t1
+limit 3;
+
+select * from t1
+order by name desc;

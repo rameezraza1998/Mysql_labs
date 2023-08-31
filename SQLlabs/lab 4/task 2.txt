@@ -1,0 +1,35 @@
+create database l4;
+use l4;
+
+create table t1(student_id int, name varchar(20));
+describe t1;
+
+# composite key means making more than 1 columns primary key
+alter table t1 add constraint  primary key(student_id,name);
+
+alter table t1 drop primary key;
+alter table t1 add constraint primary key(student_id);
+drop table t1;
+
+alter table t1 modify name varchar(20) not null;
+alter table t1 add dept varchar(20) default 'finance';
+alter table t1 alter dept drop default;
+
+# task 2
+alter table t1 modify student_id int auto_increment;
+create table t2(ph_no int auto_increment, city varchar(20),
+primary key (ph_no));
+describe t2;
+insert into t2 values(525252525,'karachi');
+insert into t2 values(43345542,'sydney');
+insert into t2 values(67787373,'hyderbad');
+select * from t2;
+DELETE FROM t2 WHERE city='karachi';
+DELETE FROM t2 where city='hyderbad'; 
+DELETE FROM t2 where city='sydney'; 
+insert into t2 values(525252525,'lahore');
+insert into t2 values(43345542,'miri');
+insert into t2 values(67787373,'california');
+truncate t2;
+
+alter table t2 modify ph_no int;
